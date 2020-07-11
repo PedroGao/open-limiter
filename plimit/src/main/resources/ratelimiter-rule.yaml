@@ -1,0 +1,7 @@
+limits:
+  - api: GET /v1/user
+    limit: 100
+    unit: 60
+  - api: POST /v1/news
+    limit: 1000
+    unit: 30

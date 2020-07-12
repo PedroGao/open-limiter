@@ -1,2 +1,14 @@
 server:
   port: 3000
+
+plimit:
+  strategy: fixed
+  storage: memory
+  rule-config:
+    limits:
+      - api: GET /v1/user
+        limit: 100
+        unit: 60
+      - api: GET /
+        limit: 1
+        unit: 30

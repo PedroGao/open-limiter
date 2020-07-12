@@ -12,14 +12,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(PlimitProperties.class)
 public class PlimitAutoConfiguration {
-
     @Autowired
     private PlimitProperties plimitProperties;
 
     @Bean
     public RateLimiter rateLimiter() {
         RuleConfig ruleConfig = plimitProperties.getRuleConfig();
-        switch (plimitProperties.getLimitStrategy()) {
+        switch (plimitProperties.getStorage()) {
             case "redis":
                 if (ruleConfig == null) {
                     return new RedisRateLimiter();

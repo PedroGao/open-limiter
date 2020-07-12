@@ -45,6 +45,7 @@ public class MemoryRateLimiter implements RateLimiter {
         String counterKey = apiLimit.getApi();
         RateLimitAlg rateLimitCounter = counters.get(counterKey);
         if (rateLimitCounter == null) {
+            // TODO 后面提供配置，更换固定时间窗口
             RateLimitAlg newRateLimitCounter = new FixedTimeWinRateLimitAlg(apiLimit.getLimit());
             rateLimitCounter = counters.putIfAbsent(counterKey, newRateLimitCounter);
             if (rateLimitCounter == null) {

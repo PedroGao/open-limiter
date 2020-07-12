@@ -25,9 +25,13 @@ public class MemoryRateLimiter implements RateLimiter {
     private RateLimitRule rule;
 
     public MemoryRateLimiter() {
-        //改动主要在这里：调用RuleConfigSource类来实现配置加载
         RuleConfigSource configSource = new FileRuleConfigSource();
         RuleConfig ruleConfig = configSource.load();
+        this.rule = new HashRateLimitRule(ruleConfig);
+    }
+
+    /* 直接传入配置 */
+    public MemoryRateLimiter(RuleConfig ruleConfig) {
         this.rule = new HashRateLimitRule(ruleConfig);
     }
 

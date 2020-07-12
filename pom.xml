@@ -10,6 +10,7 @@
 
     <modules>
         <module>plimit</module>
+        <module>plimit-spring-boot-starter</module>
     </modules>
 
 </project>

@@ -1,5 +1,6 @@
 package com.pedro.ratelimiter;
 
+import com.pedro.ratelimiter.alg.FixedTimeWinRateLimitAlg;
 import com.pedro.ratelimiter.alg.RateLimitAlg;
 import com.pedro.ratelimiter.exception.InternalErrorException;
 import com.pedro.ratelimiter.rule.ApiLimit;
@@ -36,7 +37,7 @@ public class RateLimiter {
         String counterKey = apiLimit.getApi();
         RateLimitAlg rateLimitCounter = counters.get(counterKey);
         if (rateLimitCounter == null) {
-            RateLimitAlg newRateLimitCounter = new RateLimitAlg(apiLimit.getLimit());
+            RateLimitAlg newRateLimitCounter = new FixedTimeWinRateLimitAlg(apiLimit.getLimit());
             rateLimitCounter = counters.putIfAbsent(counterKey, newRateLimitCounter);
             if (rateLimitCounter == null) {
                 rateLimitCounter = newRateLimitCounter;

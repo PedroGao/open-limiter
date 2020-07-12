@@ -9,6 +9,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 固定时间窗口限流算法实现
+ */
 public class FixedTimeWinRateLimitAlg implements RateLimitAlg {
     /* timeout for {@code Lock.tryLock() }. */
     private static final long TRY_LOCK_TIMEOUT = 200L;  // 200ms.

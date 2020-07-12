@@ -1,5 +1,8 @@
 package com.pedro.ratelimiter.exception;
 
+/**
+ * 异常信息
+ */
 public class InternalErrorException extends RuntimeException {
 
     public InternalErrorException(String message) {

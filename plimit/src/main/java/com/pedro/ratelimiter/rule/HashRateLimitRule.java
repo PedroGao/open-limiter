@@ -2,6 +2,9 @@ package com.pedro.ratelimiter.rule;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 哈希表实现查找
+ */
 public class HashRateLimitRule implements RateLimitRule {
     private RuleConfig ruleConfig;
     private ConcurrentHashMap<String, ApiLimit> limitMap = new ConcurrentHashMap<>();

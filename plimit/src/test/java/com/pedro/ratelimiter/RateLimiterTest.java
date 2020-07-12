@@ -7,7 +7,7 @@ class RateLimiterTest {
 
     @Test
     void limit() {
-        RateLimiter limiter = new RateLimiter();
+        RateLimiter limiter = new MemoryRateLimiter();
         boolean ok = limiter.limit("GET /v1/user");
         Assertions.assertTrue(ok);
     }

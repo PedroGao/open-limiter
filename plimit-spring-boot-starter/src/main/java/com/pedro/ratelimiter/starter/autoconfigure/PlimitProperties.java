@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class PlimitProperties {
     private String limitStrategy;
     private RuleConfig ruleConfig;
+    // todo 限流算法选择，限流方式选择，限流查找方式选择
 
     public String getLimitStrategy() {
         return limitStrategy;
